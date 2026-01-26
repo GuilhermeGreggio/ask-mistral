@@ -27,32 +27,32 @@ sudo cp ask /usr/local/bin/
 echo -e "${GREEN}✓ Installation complete!${NC}"
 echo
 
-# Get OpenRouter IPs
-echo "Resolving OpenRouter DNS..."
-IPS=$(dig +short openrouter.ai 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' || nslookup openrouter.ai 2>/dev/null | grep -A1 "Name:" | grep "Address:" | awk '{print $2}' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$')
+# Get Mistral IPs
+echo "Resolving Mistral DNS..."
+IPS=$(dig +short api.mistral.ai 2>/dev/null | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' || nslookup api.mistral.ai 2>/dev/null | grep -A1 "Name:" | grep "Address:" | awk '{print $2}' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$')
 
 if [ -n "$IPS" ]; then
-    echo -e "${YELLOW}OpenRouter IP addresses:${NC}"
+    echo -e "${YELLOW}Mistral API IP addresses:${NC}"
     echo "$IPS"
     echo
     echo "To improve performance, you can add these to /etc/hosts:"
     echo "----------------------------------------"
     for IP in $IPS; do
-        echo "$IP    openrouter.ai"
+        echo "$IP    api.mistral.ai"
     done | head -1  # Only show first IP as hosts file needs single entry
     echo "----------------------------------------"
     echo
     echo "Add with: sudo nano /etc/hosts"
     echo "(Only add ONE IP address to avoid conflicts)"
 else
-    echo "Could not resolve OpenRouter IPs. Network may be unavailable."
+    echo "Could not resolve Mistral API IPs. Network may be unavailable."
 fi
 
 echo
 echo -e "${GREEN}Usage:${NC}"
 echo "  ask 'What is 2+2?'"
-echo "  ask -g 'Explain quantum computing'"
+echo "  ask -m 'Explain quantum computing'"
 echo "  ask --help"
 echo
 echo "Don't forget to set your API key:"
-echo "  export OPENROUTER_API_KEY='your-key-here'"
+echo "  export MISTRAL_API_KEY='your-key-here'"

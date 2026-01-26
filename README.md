@@ -1,6 +1,6 @@
 # ask - AI CLI tool
 
-A lightweight bash script for querying AI models via the OpenRouter API, optimized for direct, executable output.
+A lightweight bash script for querying AI models via the Mistral API, optimized for direct, executable output.
 
 ## Quick start
 
@@ -13,15 +13,15 @@ chmod +x ask
 sudo cp ask /usr/local/bin/
 
 
-# Make sure you have you OpenRouter API key
-export OPENROUTER_API_KEY="your-api-key-here"
+# Make sure you have your Mistral API key
+export MISTRAL_API_KEY="your-api-key-here"
 
 # Test it
 > ask remove lines in file1 that appear in file2
 
 grep -vFf file2 file1 > file3 && mv file3 file1
 
-[inception/mercury-coder via Inception - 0.66s - 20.9 tok/s]
+[devstral-medium-latest - 0.66s - 20.9 tok/s]
 ```
 
 We also provide a handy install script.
@@ -37,29 +37,17 @@ ask ffmpeg command to convert mp4 to gif
 ### Model selection
 
 ```bash
-# Default model (Mercury Coder - optimized for code)
+# Default model (Devstral Medium)
 ask find files larger than 20mb
 
 # Shorthand flags for quick model switching
-ask -c "prompt"  # Mercury Coder (default, best for code)
-ask -g "prompt"  # Gemini 2.5 Flash (fast, general purpose)
-ask -s "prompt"  # Claude Sonnet 4 (complex reasoning)
-ask -k "prompt"  # Kimi K2 (long context)
-ask -q "prompt"  # Qwen 235B (large model)
+ask -m "prompt"  # Devstral Medium (default)
+ask -s "prompt"  # Devstral Small (faster)
 
 # Custom model by full name
-ask -m "openai/gpt-4o" "Explain this concept"
+ask -m "devstral-medium-latest" "Explain this concept"
 ```
 
-### Provider routing
-
-Specify provider order for fallback support:
-
-```bash
-ask --provider "cerebras,together" "Generate code"
-```
-
-This will try Cerebras first, then fall back to Together if needed.
 
 ### System prompts
 
@@ -90,16 +78,12 @@ cat script.py | ask "Review this code"
 
 | Option | Description |
 |--------|-------------|
-| `-c` | Use Mercury Coder (default) |
-| `-g` | Use Google Gemini 2.5 Flash |
-| `-s` | Use Claude Sonnet 4 |
-| `-k` | Use Moonshotai Kimi K2 |
-| `-q` | Use Qwen3 235B |
+| `-m` | Use Devstral Medium (default) |
+| `-s` | Use Devstral Small (faster) |
 | `-m MODEL` | Use custom model |
 | `-r` | Disable system prompt |
 | `--stream` | Enable streaming output |
 | `--system` | Set custom system prompt |
-| `--provider` | Set provider order (comma-separated) |
 | `-h, --help` | Show help message |
 
 ## Common use cases
@@ -148,13 +132,13 @@ docker ps -a | ask "Which containers are using the most memory?"
 
 ### Dependencies
 - `bash` - Shell interpreter
-- `curl` - HTTP requests to OpenRouter API
+- `curl` - HTTP requests to Mistral API
 - `jq` - JSON parsing for API responses
 - `bc` - Performance metrics calculation
 
 ### API access
-- OpenRouter API key (get one at [openrouter.ai](https://openrouter.ai))
-- Set as environment variable: `OPENROUTER_API_KEY`
+- Mistral API key (get one at [console.mistral.ai](https://console.mistral.ai))
+- Set as environment variable: `MISTRAL_API_KEY`
 
 ## License
 
