@@ -4,6 +4,8 @@ A lightweight bash script for querying AI models via the Mistral API, optimized 
 
 This script is using free models, you can check the API pricing in https://mistral.ai/pricing#api-pricing.
 
+You can create your API key at https://admin.mistral.ai/organization/api-keys.
+
 ## Quick start
 
 ### Option 1: One-line install with curl (recommended)
