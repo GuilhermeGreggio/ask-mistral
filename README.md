@@ -19,11 +19,7 @@ sudo cp ask /usr/local/bin/
 export MISTRAL_API_KEY="your-api-key-here"
 
 # Test it
-> ask remove lines in file1 that appear in file2
-
-grep -vFf file2 file1 > file3 && mv file3 file1
-
-[devstral-medium-latest - 0.66s - 20.9 tok/s]
+ask --test
 ```
 
 We also provide a handy install script.
