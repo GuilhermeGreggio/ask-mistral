@@ -2,6 +2,8 @@
 
 A lightweight bash script for querying AI models via the Mistral API, optimized for direct, executable output.
 
+This script is using free models, you can check the API pricing in https://mistral.ai/pricing#api-pricing.
+
 ## Quick start
 
 ```bash
