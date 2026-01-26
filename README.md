@@ -6,23 +6,34 @@ This script is using free models, you can check the API pricing in https://mistr
 
 ## Quick start
 
+### Option 1: One-line install with curl (recommended)
+
 ```bash
-# Clone and setup
-git clone https://github.com/GuilhermeGreggio/ask-mistral.git
-cd ask
+curl -sS https://raw.githubusercontent.com/GuilhermeGreggio/ask-mistral/main/install.sh | bash
 
-chmod +x ask
-sudo cp ask /usr/local/bin/
-
-
-# Make sure you have your Mistral API key
+# Set your Mistral API key
 export MISTRAL_API_KEY="your-api-key-here"
 
 # Test it
 ask --test
 ```
 
-We also provide a handy install script.
+### Option 2: Manual installation
+
+```bash
+# Clone and setup
+git clone https://github.com/GuilhermeGreggio/ask-mistral.git
+cd ask-mistral
+
+chmod +x ask
+sudo cp ask /usr/local/bin/
+
+# Set your Mistral API key
+export MISTRAL_API_KEY="your-api-key-here"
+
+# Test it
+ask --test
+```
 
 ## Usage
 
