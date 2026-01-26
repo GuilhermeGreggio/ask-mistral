@@ -8,7 +8,7 @@ This script is using free models, you can check the API pricing in https://mistr
 
 ```bash
 # Clone and setup
-git clone https://github.com/kagisearch/ask.git
+git clone https://github.com/GuilhermeGreggio/ask-mistral.git
 cd ask
 
 chmod +x ask
