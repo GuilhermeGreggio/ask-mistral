@@ -11,6 +11,8 @@ NC='\033[0m'
 
 echo "Installing 'ask' CLI tool..."
 
+curl -L -O https://raw.githubusercontent.com/GuilhermeGreggio/ask-mistral/refs/heads/main/ask
+
 # Check if script exists
 if [ ! -f "ask" ]; then
     echo "Error: 'ask' script not found in current directory" >&2
